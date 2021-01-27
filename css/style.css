@@ -1,5 +1,10 @@
 body {
+  background-image: url(../css/images/banner.jpg);
+  height: 100%;
   width: 100%;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-size: cover;
 }
 body:before,
 body:after {
